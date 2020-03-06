@@ -1,0 +1,124 @@
+<html>
+<head>
+<title>TestNG:  Test_Claim_Payment</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Test_Claim_Payment</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>9/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue May 09 06:02:30 EDT 2017</td>
+</tr>
+<tr><td>Total time:</td><td>2384 seconds (2384403 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Com.Testcases.Claim_Payment.Test_ClaimPayment()'><b>Test_ClaimPayment</b><br>Test class: Com.Testcases.Claim_Payment<br>Parameters: {Loss_Payment_CheckAmount=500, ValidationMessages=Please remember to send a payee notification letter., Loss_Payment_Mailing_Zip=30069, row=39, Loss_Payment_Mailing_Name1=Foghorn Leghorn, Result=Pass, Loss_Payment_Mailing_County=Cobb, Loss_Payment_Name1_Textbox=Foghorn Leghorn, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Partial Loss Payment test., Loss_Payment_Mailing_State=GA, CopyType=Related Claim, TestcaseName=8443, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Foghorn Leghorn, Loss_Payment_PaymentType=Partial Loss Payment, NewClaimNo=00086527, Loss_Payment_Mailing_City=Marietta, ClaimNo=00086311, DCC_ExpenseType_DDL=}</td>
+<td></td>
+<td>169</td>
+<td>Com.Testcases.Claim_Payment@4738a206</td></tr>
+<tr>
+<td title='Com.Testcases.Claim_Payment.Test_ClaimPayment()'><b>Test_ClaimPayment</b><br>Test class: Com.Testcases.Claim_Payment<br>Parameters: {Loss_Payment_CheckAmount=5000, ValidationMessages=This payment will automatically close the Loss Reserve. The Current Outstanding Loss Reserve will be taken to $0. Any further transaction against the Loss Reserve will require the Loss Reserve to be reopened or for a Supplemental Payment to be made. Do you wish to continue with this payment?, Loss_Payment_Mailing_Zip=30069, row=40, Loss_Payment_Mailing_Name1=Foghorn Leghorn, Result=Pass, Loss_Payment_Mailing_County=Cobb, Loss_Payment_Name1_Textbox=Foghorn Leghorn, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Final Loss Payment test., Loss_Payment_Mailing_State=GA, CopyType=Related Claim, TestcaseName=8452, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Foghorn Leghorn, Loss_Payment_PaymentType=Final Loss Payment, NewClaimNo=00086528, Loss_Payment_Mailing_City=Marietta, ClaimNo=00086311, DCC_ExpenseType_DDL=}</td>
+<td></td>
+<td>163</td>
+<td>Com.Testcases.Claim_Payment@4738a206</td></tr>
+<tr>
+<td title='Com.Testcases.Claim_Payment.Test_ClaimPayment()'><b>Test_ClaimPayment</b><br>Test class: Com.Testcases.Claim_Payment<br>Parameters: {Loss_Payment_CheckAmount=5000, ValidationMessages=You are about to make a payment against a closed Loss Reserve. Do you wish to continue with this payment?, Loss_Payment_Mailing_Zip=30069, row=41, Loss_Payment_Mailing_Name1=Foghorn Leghorn, Result=Pass, Loss_Payment_Mailing_County=Cobb, Loss_Payment_Name1_Textbox=Foghorn Leghorn, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Supplemental Loss Payment test., Loss_Payment_Mailing_State=GA, CopyType=Related Claim, TestcaseName=8458, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Foghorn Leghorn, Loss_Payment_PaymentType=Supplemental Loss Payment, NewClaimNo=00086529, Loss_Payment_Mailing_City=Marietta, ClaimNo=00086311, DCC_ExpenseType_DDL=}</td>
+<td></td>
+<td>268</td>
+<td>Com.Testcases.Claim_Payment@4738a206</td></tr>
+<tr>
+<td title='Com.Testcases.Claim_Payment.Test_ClaimPayment()'><b>Test_ClaimPayment</b><br>Test class: Com.Testcases.Claim_Payment<br>Parameters: {Loss_Payment_CheckAmount=500, ValidationMessages=Please remember to send a payee notification letter., Loss_Payment_Mailing_Zip=30069, row=42, Loss_Payment_Mailing_Name1=Foghorn Leghorn, Result=Pass, Loss_Payment_Mailing_County=Cobb, Loss_Payment_Name1_Textbox=Foghorn Leghorn, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Partial DCC Payment test., Loss_Payment_Mailing_State=GA, CopyType=Related Claim, TestcaseName=8478, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Foghorn Leghorn, Loss_Payment_PaymentType=Partial DCC Payment, NewClaimNo=00086530, Loss_Payment_Mailing_City=Marietta, ClaimNo=00086311, DCC_ExpenseType_DDL=Expert Fee}</td>
+<td></td>
+<td>310</td>
+<td>Com.Testcases.Claim_Payment@4738a206</td></tr>
+<tr>
+<td title='Com.Testcases.Claim_Payment.Test_ClaimPayment()'><b>Test_ClaimPayment</b><br>Test class: Com.Testcases.Claim_Payment<br>Parameters: {Loss_Payment_CheckAmount=5000, ValidationMessages=This payment will automatically close the DCC Expense Reserve. The Current Outstanding DCC Expense Reserve will be taken to $0. Any further transaction against the DCC Expense Reserve will require the DCC Expense Reserve to be reopened or for a Supplemental Payment to be made. Do you wish to continue with this payment?, Loss_Payment_Mailing_Zip=30069, row=43, Loss_Payment_Mailing_Name1=Foghorn Leghorn, Result=Pass, Loss_Payment_Mailing_County=Cobb, Loss_Payment_Name1_Textbox=Foghorn Leghorn, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Final DCC Payment test, Loss_Payment_Mailing_State=GA, CopyType=Related Claim, TestcaseName=8480, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Foghorn Leghorn, Loss_Payment_PaymentType=FInal DCC Payment, NewClaimNo=00086531, Loss_Payment_Mailing_City=Marietta, ClaimNo=00086311, DCC_ExpenseType_DDL=Expert Fee}</td>
+<td></td>
+<td>211</td>
+<td>Com.Testcases.Claim_Payment@4738a206</td></tr>
+<tr>
+<td title='Com.Testcases.Claim_Payment.Test_ClaimPayment()'><b>Test_ClaimPayment</b><br>Test class: Com.Testcases.Claim_Payment<br>Parameters: {Loss_Payment_CheckAmount=5000, ValidationMessages=You are about to make a payment against a closed DCC Expense Reserve. Do you wish to continue with this payment?, Loss_Payment_Mailing_Zip=30069, row=44, Loss_Payment_Mailing_Name1=Foghorn Leghorn, Result=Pass, Loss_Payment_Mailing_County=Cobb, Loss_Payment_Name1_Textbox=Foghorn Leghorn, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Supplemental DCC Payment test., Loss_Payment_Mailing_State=GA, CopyType=Related Claim, TestcaseName=8484, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Foghorn Leghorn, Loss_Payment_PaymentType=Supplemental DCC Expense Payment, NewClaimNo=00086532, Loss_Payment_Mailing_City=Marietta, ClaimNo=00086311, DCC_ExpenseType_DDL=Expert Fee}</td>
+<td></td>
+<td>315</td>
+<td>Com.Testcases.Claim_Payment@4738a206</td></tr>
+<tr>
+<td title='Com.Testcases.Claim_Payment.Test_ClaimPayment()'><b>Test_ClaimPayment</b><br>Test class: Com.Testcases.Claim_Payment<br>Parameters: {Loss_Payment_CheckAmount=500, ValidationMessages=, Loss_Payment_Mailing_Zip=30069, row=45, Loss_Payment_Mailing_Name1=Foghorn Leghorn, Result=Pass, Loss_Payment_Mailing_County=Cobb, Loss_Payment_Name1_Textbox=Foghorn Leghorn, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Partial A&O Payment test., Loss_Payment_Mailing_State=GA, CopyType=Related Claim, TestcaseName=8492, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Foghorn Leghorn, Loss_Payment_PaymentType=Partial A&O Unalloc Expense Payment, NewClaimNo=00086534, Loss_Payment_Mailing_City=Marietta, ClaimNo=00086311, DCC_ExpenseType_DDL=Expert Fee}</td>
+<td></td>
+<td>307</td>
+<td>Com.Testcases.Claim_Payment@4738a206</td></tr>
+<tr>
+<td title='Com.Testcases.Claim_Payment.Test_ClaimPayment()'><b>Test_ClaimPayment</b><br>Test class: Com.Testcases.Claim_Payment<br>Parameters: {Loss_Payment_CheckAmount=5000, ValidationMessages=This payment will automatically close the AO Expense Reserve. The Current Outstanding AO Expense Reserve will be taken to $0. Any further transaction against the AO Expense Reserve will require the AO Expense Reserve to be reopened or for a Supplemental Payment to be made. Do you wish to continue with this payment?, Loss_Payment_Mailing_Zip=30069, row=46, Loss_Payment_Mailing_Name1=Foghorn Leghorn, Result=Pass, Loss_Payment_Mailing_County=Cobb, Loss_Payment_Name1_Textbox=Foghorn Leghorn, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Final A&O Payment test., Loss_Payment_Mailing_State=GA, CopyType=Related Claim, TestcaseName=8488, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Foghorn Leghorn, Loss_Payment_PaymentType=Final A&O Unalloc Expense Payment, NewClaimNo=00086535, Loss_Payment_Mailing_City=Marietta, ClaimNo=00086311, DCC_ExpenseType_DDL=Expert Fee}</td>
+<td></td>
+<td>210</td>
+<td>Com.Testcases.Claim_Payment@4738a206</td></tr>
+<tr>
+<td title='Com.Testcases.Claim_Payment.Test_ClaimPayment()'><b>Test_ClaimPayment</b><br>Test class: Com.Testcases.Claim_Payment<br>Parameters: {Loss_Payment_CheckAmount=5000, ValidationMessages=You are about to make a payment against a closed AO Expense Reserve. Do you wish to continue with this payment?, Loss_Payment_Mailing_Zip=30069, row=47, Loss_Payment_Mailing_Name1=Foghorn Leghorn, Result=Pass, Loss_Payment_Mailing_County=Cobb, Loss_Payment_Name1_Textbox=Foghorn Leghorn, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Suuplemental A&O Payment test., Loss_Payment_Mailing_State=GA, CopyType=Related Claim, TestcaseName=8498, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Foghorn Leghorn, Loss_Payment_PaymentType=Supplemental A&O Unalloc Expense Payment, NewClaimNo=00086536, Loss_Payment_Mailing_City=Marietta, ClaimNo=00086311, DCC_ExpenseType_DDL=Expert Fee}</td>
+<td></td>
+<td>312</td>
+<td>Com.Testcases.Claim_Payment@4738a206</td></tr>
+</table><p>
+</body>
+</html>

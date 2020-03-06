@@ -1,0 +1,205 @@
+<html>
+<head>
+<title>TestNG:  Test_ReserveAndPayment_Verification_FromDatabase</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Test_ReserveAndPayment_Verification_FromDatabase</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>8/2/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Dec 14 05:59:09 EST 2017</td>
+</tr>
+<tr><td>Total time:</td><td>3335 seconds (3335682 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase.Test_ReserveAndPayment_Verification_FromDatabase()'><b>Test_ReserveAndPayment_Verification_FromDatabase</b><br>Test class: Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase<br>Parameters: {Loss_Payment_CheckAmount=5000, ValidationMessages=This payment will automatically close the DCC Expense Reserve. The Current Outstanding DCC Expense Reserve will be taken to $0. Any further transaction against the DCC Expense Reserve will require the DCC Expense Reserve to be reopened or for a Supplemental Payment to be made. Do you wish to continue with this payment?, Loss_Payment_Mailing_Zip=23236, row=55, Loss_Payment_Mailing_Name1=Alberto Cespedes, Loss_Payment_Mailing_Address2=, Result=, Loss_Payment_Mailing_Address1=101 Test Drive, Loss_Payment_Mailing_County=Chesterfield, Loss_Payment_Name1_Textbox=Alberto Cespedes, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Final DCC Payment test, Loss_Payment_Mailing_State=VA, CopyType=Related Claim, TestcaseName=8480, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Alberto Cespedes, Loss_Payment_PaymentType=FInal DCC Payment, NewClaimNo=00080635, Loss_Payment_Mailing_City=North Chesterfield, ClaimNo=00080602, DCC_ExpenseType_DDL=Expert Fee}</td>
+<td><div><pre>java.lang.AssertionError: expected [5,000.00] but found [50.00]
+	at Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase.Test_ReserveAndPayment_Verification_FromDatabase(Claim_Reserve_PaymentVerfication_fromDatabase.java:196)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace461309639", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace461309639'><pre>java.lang.AssertionError: expected [5,000.00] but found [50.00]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertEquals(Assert.java:123)
+	at org.testng.Assert.assertEquals(Assert.java:176)
+	at org.testng.Assert.assertEquals(Assert.java:186)
+	at Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase.Test_ReserveAndPayment_Verification_FromDatabase(Claim_Reserve_PaymentVerfication_fromDatabase.java:196)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+</pre></div></td>
+<td>116</td>
+<td>Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase@6be968ce</td></tr>
+<tr>
+<td title='Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase.Test_ReserveAndPayment_Verification_FromDatabase()'><b>Test_ReserveAndPayment_Verification_FromDatabase</b><br>Test class: Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase<br>Parameters: {Loss_Payment_CheckAmount=500, ValidationMessages=, Loss_Payment_Mailing_Zip=23236, row=57, Loss_Payment_Mailing_Name1=Alberto Cespedes, Loss_Payment_Mailing_Address2=, Result=, Loss_Payment_Mailing_Address1=101 Test Drive, Loss_Payment_Mailing_County=Chesterfield, Loss_Payment_Name1_Textbox=Alberto Cespedes, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Partial A&O Payment test., Loss_Payment_Mailing_State=VA, CopyType=Related Claim, TestcaseName=8492, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Alberto Cespedes, Loss_Payment_PaymentType=Partial A&O Unalloc Expense Payment, NewClaimNo=00080637, Loss_Payment_Mailing_City=North Chesterfield, ClaimNo=00080602, DCC_ExpenseType_DDL=Expert Fee}</td>
+<td><div><pre>java.lang.AssertionError: expected [500.00] but found [50.00]
+	at Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase.Test_ReserveAndPayment_Verification_FromDatabase(Claim_Reserve_PaymentVerfication_fromDatabase.java:196)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace315885065", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace315885065'><pre>java.lang.AssertionError: expected [500.00] but found [50.00]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertEquals(Assert.java:123)
+	at org.testng.Assert.assertEquals(Assert.java:176)
+	at org.testng.Assert.assertEquals(Assert.java:186)
+	at Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase.Test_ReserveAndPayment_Verification_FromDatabase(Claim_Reserve_PaymentVerfication_fromDatabase.java:196)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
+</pre></div></td>
+<td>116</td>
+<td>Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase@6be968ce</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase.Test_ReserveAndPayment_Verification_FromDatabase()'><b>Test_ReserveAndPayment_Verification_FromDatabase</b><br>Test class: Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase<br>Parameters: {Loss_Payment_CheckAmount=500, ValidationMessages=Please remember to send a payee notification letter., Loss_Payment_Mailing_Zip=23236, row=50, Loss_Payment_Mailing_Name1=Alberto Cespedes, Loss_Payment_Mailing_Address2=, Result=, Loss_Payment_Mailing_Address1=101 Test Drive, Loss_Payment_Mailing_County=Chesterfield, Loss_Payment_Name1_Textbox=Alberto Cespedes, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Partial Loss Payment test., Loss_Payment_Mailing_State=VA, CopyType=Related Claim, TestcaseName=8443, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Alberto Cespedes, Loss_Payment_PaymentType=Partial Loss Payment, NewClaimNo=00080630, Loss_Payment_Mailing_City=North Chesterfield, ClaimNo=00080602, DCC_ExpenseType_DDL=}</td>
+<td></td>
+<td>323</td>
+<td>Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase@6be968ce</td></tr>
+<tr>
+<td title='Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase.Test_ReserveAndPayment_Verification_FromDatabase()'><b>Test_ReserveAndPayment_Verification_FromDatabase</b><br>Test class: Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase<br>Parameters: {Loss_Payment_CheckAmount=500, ValidationMessages=This payment will automatically close the Loss Reserve. The Current Outstanding Loss Reserve will be taken to $0. Any further transaction against the Loss Reserve will require the Loss Reserve to be reopened or for a Supplemental Payment to be made. Do you wish to continue with this payment?, Loss_Payment_Mailing_Zip=23236, row=51, Loss_Payment_Mailing_Name1=Alberto Cespedes, Loss_Payment_Mailing_Address2=, Result=, Loss_Payment_Mailing_Address1=101 Test Drive, Loss_Payment_Mailing_County=Chesterfield, Loss_Payment_Name1_Textbox=Alberto Cespedes, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Final Loss Payment test., Loss_Payment_Mailing_State=VA, CopyType=Related Claim, TestcaseName=8452-A, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Alberto Cespedes, Loss_Payment_PaymentType=Final Loss Payment, NewClaimNo=00080631, Loss_Payment_Mailing_City=North Chesterfield, ClaimNo=00080602, DCC_ExpenseType_DDL=}</td>
+<td></td>
+<td>227</td>
+<td>Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase@6be968ce</td></tr>
+<tr>
+<td title='Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase.Test_ReserveAndPayment_Verification_FromDatabase()'><b>Test_ReserveAndPayment_Verification_FromDatabase</b><br>Test class: Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase<br>Parameters: {Loss_Payment_CheckAmount=5000, ValidationMessages=This payment will automatically close the Loss Reserve. The Current Outstanding Loss Reserve will be taken to $0. Any further transaction against the Loss Reserve will require the Loss Reserve to be reopened or for a Supplemental Payment to be made. Do you wish to continue with this payment?, Loss_Payment_Mailing_Zip=23236, row=52, Loss_Payment_Mailing_Name1=Alberto Cespedes, Loss_Payment_Mailing_Address2=, Result=, Loss_Payment_Mailing_Address1=101 Test Drive, Loss_Payment_Mailing_County=Chesterfield, Loss_Payment_Name1_Textbox=Alberto Cespedes, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Final Loss Payment test., Loss_Payment_Mailing_State=VA, CopyType=Related Claim, TestcaseName=8452-B, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Alberto Cespedes, Loss_Payment_PaymentType=Final Loss Payment, NewClaimNo=00080632, Loss_Payment_Mailing_City=North Chesterfield, ClaimNo=00080602, DCC_ExpenseType_DDL=}</td>
+<td></td>
+<td>230</td>
+<td>Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase@6be968ce</td></tr>
+<tr>
+<td title='Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase.Test_ReserveAndPayment_Verification_FromDatabase()'><b>Test_ReserveAndPayment_Verification_FromDatabase</b><br>Test class: Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase<br>Parameters: {Loss_Payment_CheckAmount=5000, ValidationMessages=You are about to make a payment against a closed Loss Reserve. Do you wish to continue with this payment?, Loss_Payment_Mailing_Zip=23236, row=53, Loss_Payment_Mailing_Name1=Alberto Cespedes, Loss_Payment_Mailing_Address2=, Result=, Loss_Payment_Mailing_Address1=101 Test Drive, Loss_Payment_Mailing_County=Chesterfield, Loss_Payment_Name1_Textbox=Alberto Cespedes, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Supplemental Loss Payment test., Loss_Payment_Mailing_State=VA, CopyType=Related Claim, TestcaseName=8458, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Alberto Cespedes, Loss_Payment_PaymentType=Supplemental Loss Payment, NewClaimNo=00080633, Loss_Payment_Mailing_City=North Chesterfield, ClaimNo=00080602, DCC_ExpenseType_DDL=}</td>
+<td></td>
+<td>1017</td>
+<td>Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase@6be968ce</td></tr>
+<tr>
+<td title='Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase.Test_ReserveAndPayment_Verification_FromDatabase()'><b>Test_ReserveAndPayment_Verification_FromDatabase</b><br>Test class: Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase<br>Parameters: {Loss_Payment_CheckAmount=500, ValidationMessages=Please remember to send a payee notification letter., Loss_Payment_Mailing_Zip=23236, row=54, Loss_Payment_Mailing_Name1=Alberto Cespedes, Loss_Payment_Mailing_Address2=, Result=, Loss_Payment_Mailing_Address1=101 Test Drive, Loss_Payment_Mailing_County=Chesterfield, Loss_Payment_Name1_Textbox=Alberto Cespedes, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Partial DCC Payment test., Loss_Payment_Mailing_State=VA, CopyType=Related Claim, TestcaseName=8478, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Alberto Cespedes, Loss_Payment_PaymentType=Partial DCC Payment, NewClaimNo=00080634, Loss_Payment_Mailing_City=North Chesterfield, ClaimNo=00080602, DCC_ExpenseType_DDL=Expert Fee}</td>
+<td></td>
+<td>324</td>
+<td>Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase@6be968ce</td></tr>
+<tr>
+<td title='Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase.Test_ReserveAndPayment_Verification_FromDatabase()'><b>Test_ReserveAndPayment_Verification_FromDatabase</b><br>Test class: Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase<br>Parameters: {Loss_Payment_CheckAmount=5000, ValidationMessages=You are about to make a payment against a closed DCC Expense Reserve. Do you wish to continue with this payment?, Loss_Payment_Mailing_Zip=23236, row=56, Loss_Payment_Mailing_Name1=Alberto Cespedes, Loss_Payment_Mailing_Address2=, Result=, Loss_Payment_Mailing_Address1=101 Test Drive, Loss_Payment_Mailing_County=Chesterfield, Loss_Payment_Name1_Textbox=Alberto Cespedes, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Supplemental DCC Payment test., Loss_Payment_Mailing_State=VA, CopyType=Related Claim, TestcaseName=8484, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Alberto Cespedes, Loss_Payment_PaymentType=Supplemental DCC Expense Payment, NewClaimNo=00080636, Loss_Payment_Mailing_City=North Chesterfield, ClaimNo=00080602, DCC_ExpenseType_DDL=Expert Fee}</td>
+<td></td>
+<td>330</td>
+<td>Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase@6be968ce</td></tr>
+<tr>
+<td title='Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase.Test_ReserveAndPayment_Verification_FromDatabase()'><b>Test_ReserveAndPayment_Verification_FromDatabase</b><br>Test class: Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase<br>Parameters: {Loss_Payment_CheckAmount=5000, ValidationMessages=This payment will automatically close the AO Expense Reserve. The Current Outstanding AO Expense Reserve will be taken to $0. Any further transaction against the AO Expense Reserve will require the AO Expense Reserve to be reopened or for a Supplemental Payment to be made. Do you wish to continue with this payment?, Loss_Payment_Mailing_Zip=23236, row=58, Loss_Payment_Mailing_Name1=Alberto Cespedes, Loss_Payment_Mailing_Address2=, Result=, Loss_Payment_Mailing_Address1=101 Test Drive, Loss_Payment_Mailing_County=Chesterfield, Loss_Payment_Name1_Textbox=Alberto Cespedes, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Final A&O Payment test., Loss_Payment_Mailing_State=VA, CopyType=Related Claim, TestcaseName=8488, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Alberto Cespedes, Loss_Payment_PaymentType=Final A&O Unalloc Expense Payment, NewClaimNo=00080638, Loss_Payment_Mailing_City=North Chesterfield, ClaimNo=00080602, DCC_ExpenseType_DDL=Expert Fee}</td>
+<td></td>
+<td>228</td>
+<td>Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase@6be968ce</td></tr>
+<tr>
+<td title='Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase.Test_ReserveAndPayment_Verification_FromDatabase()'><b>Test_ReserveAndPayment_Verification_FromDatabase</b><br>Test class: Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase<br>Parameters: {Loss_Payment_CheckAmount=5000, ValidationMessages=You are about to make a payment against a closed AO Expense Reserve. Do you wish to continue with this payment?, Loss_Payment_Mailing_Zip=23236, row=59, Loss_Payment_Mailing_Name1=Alberto Cespedes, Loss_Payment_Mailing_Address2=, Result=, Loss_Payment_Mailing_Address1=101 Test Drive, Loss_Payment_Mailing_County=Chesterfield, Loss_Payment_Name1_Textbox=Alberto Cespedes, Loss_Payment_DeliveryMethod_DDL=Regular Mail, Runmode=Y, AdjustmentAmounttextbox=3000, Loss_Payment_FOR_Textbox=This is a Suuplemental A&O Payment test., Loss_Payment_Mailing_State=VA, CopyType=Related Claim, TestcaseName=8498, Loss_Payment_PayToTheOrderOf_DDL=Claimant - Alberto Cespedes, Loss_Payment_PaymentType=Supplemental A&O Unalloc Expense Payment, NewClaimNo=00080639, Loss_Payment_Mailing_City=North Chesterfield, ClaimNo=00080602, DCC_ExpenseType_DDL=Expert Fee}</td>
+<td></td>
+<td>330</td>
+<td>Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase@6be968ce</td></tr>
+</table><p>
+</body>
+</html>

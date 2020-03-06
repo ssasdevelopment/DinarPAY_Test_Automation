@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [My Sample Suite]">
+  <test name="Test_ClaimPayment(failed)">
+    <classes>
+      <class name="Com.Testcases.Claim_Reserve_PaymentVerfication_fromExcel">
+        <methods>
+          <include name="Test_ClaimPayment" invocation-numbers="4 6 7"/>
+          <include name="Testbefore"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- Com.Testcases.Claim_Reserve_PaymentVerfication_fromExcel -->
+      <class name="Com.Testcases.Recoverable_Adjustment_11693">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="Testbefore"/>
+        </methods>
+      </class> <!-- Com.Testcases.Recoverable_Adjustment_11693 -->
+      <class name="Com.Testcases.RecoveryPayment_RecoveryType_Supplemental_11698">
+        <methods>
+          <include name="Testbefore"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- Com.Testcases.RecoveryPayment_RecoveryType_Supplemental_11698 -->
+      <class name="Com.Testcases.DeductibleLoss_ExpRecoverable_RecoveryAdjustmentExceedsPolicyDeductible_11695">
+        <methods>
+          <include name="Testbefore"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- Com.Testcases.DeductibleLoss_ExpRecoverable_RecoveryAdjustmentExceedsPolicyDeductible_11695 -->
+      <class name="Com.Testcases.LossRecoveryPayment_DuplicatePayment_11697">
+        <methods>
+          <include name="Testbefore"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- Com.Testcases.LossRecoveryPayment_DuplicatePayment_11697 -->
+      <class name="Com.Testcases.Deductible_Loss_Recoverable_Adjustment_11694">
+        <methods>
+          <include name="Testbefore"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- Com.Testcases.Deductible_Loss_Recoverable_Adjustment_11694 -->
+      <class name="Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="Testbefore"/>
+        </methods>
+      </class> <!-- Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase -->
+      <class name="Com.Testcases.RecoverableAdjustmentTransaction_OpenDed_Loss_Rec_11699">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="Testbefore"/>
+        </methods>
+      </class> <!-- Com.Testcases.RecoverableAdjustmentTransaction_OpenDed_Loss_Rec_11699 -->
+    </classes>
+  </test> <!-- Test_ClaimPayment(failed) -->
+  <test name="Test_ReserveAndPayment_Verification_FromDatabase(failed)">
+    <classes>
+      <class name="Com.Testcases.Recoverable_Adjustment_11693">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="Testbefore"/>
+        </methods>
+      </class> <!-- Com.Testcases.Recoverable_Adjustment_11693 -->
+      <class name="Com.Testcases.Claim_Reserve_PaymentVerfication_fromExcel">
+        <methods>
+          <include name="Testbefore"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- Com.Testcases.Claim_Reserve_PaymentVerfication_fromExcel -->
+      <class name="Com.Testcases.RecoveryPayment_RecoveryType_Supplemental_11698">
+        <methods>
+          <include name="Testbefore"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- Com.Testcases.RecoveryPayment_RecoveryType_Supplemental_11698 -->
+      <class name="Com.Testcases.DeductibleLoss_ExpRecoverable_RecoveryAdjustmentExceedsPolicyDeductible_11695">
+        <methods>
+          <include name="Testbefore"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- Com.Testcases.DeductibleLoss_ExpRecoverable_RecoveryAdjustmentExceedsPolicyDeductible_11695 -->
+      <class name="Com.Testcases.LossRecoveryPayment_DuplicatePayment_11697">
+        <methods>
+          <include name="Testbefore"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- Com.Testcases.LossRecoveryPayment_DuplicatePayment_11697 -->
+      <class name="Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase">
+        <methods>
+          <include name="Test_ReserveAndPayment_Verification_FromDatabase" invocation-numbers="5 7"/>
+          <include name="afterMethod"/>
+          <include name="Testbefore"/>
+        </methods>
+      </class> <!-- Com.Testcases.Claim_Reserve_PaymentVerfication_fromDatabase -->
+      <class name="Com.Testcases.Deductible_Loss_Recoverable_Adjustment_11694">
+        <methods>
+          <include name="Testbefore"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- Com.Testcases.Deductible_Loss_Recoverable_Adjustment_11694 -->
+      <class name="Com.Testcases.RecoverableAdjustmentTransaction_OpenDed_Loss_Rec_11699">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="Testbefore"/>
+        </methods>
+      </class> <!-- Com.Testcases.RecoverableAdjustmentTransaction_OpenDed_Loss_Rec_11699 -->
+    </classes>
+  </test> <!-- Test_ReserveAndPayment_Verification_FromDatabase(failed) -->
+</suite> <!-- Failed suite [My Sample Suite] -->

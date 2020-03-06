@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="SSAS_Dinar_Pay">
+
+<test name="Test_CreateMerchant">
+    <classes>
+        <class name="Com.Testcases.Merchant.CreateMerchant" ></class>  
+    </classes>
+</test>
+
+</suite>
