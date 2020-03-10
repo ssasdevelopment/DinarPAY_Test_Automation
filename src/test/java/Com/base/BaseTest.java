@@ -97,7 +97,7 @@ public class BaseTest {
 	public static int rows;
 	public static String TestStatus = "";
 
-	public static Xlsx_Reader xls = new Xlsx_Reader(System.getProperty("user.dir")+"\\Testdata\\TestCaseData.xlsx");
+	public static Xlsx_Reader xls = new Xlsx_Reader(System.getProperty("user.dir") + "\\Testdata\\TestCaseData.xlsx");
 
 	/***************** General Functions *********************/
 
@@ -112,7 +112,7 @@ public class BaseTest {
 	public void TestAfterMethod() {
 		rep.endTest(test);
 		rep.flush();
-		driver.quit();
+		// driver.quit();
 		renameExtentReport();
 	}
 
@@ -277,7 +277,6 @@ public class BaseTest {
 
 	/*------------------------------------------------------------------------*/
 
-
 	public WebElement getLocator(String locator) {
 
 		WebElement element = null;
@@ -312,9 +311,87 @@ public class BaseTest {
 			break;
 		default:
 		}
-		
-		System.out.println("Element Locator "+loc[0]+" : "+element);
+
+//		System.out.println("Element Locator " + loc[0] + " : " + element);
 		return element;
+	}
+
+	public List<WebElement> getLocators(String locators) {
+
+		List<WebElement> elements = null;
+
+		String[] loc = locators.split("@@");
+
+		switch (loc[0]) {
+
+		case "ID":
+			elements = driver.findElements(By.id(loc[1]));
+			break;
+		case "Name":
+			elements = driver.findElements(By.name(loc[1]));
+			break;
+		case "CSS":
+			elements = driver.findElements(By.cssSelector(loc[1]));
+			break;
+		case "LinkText":
+			elements = driver.findElements(By.linkText(loc[1]));
+			break;
+		case "PartialLinkText":
+			elements = driver.findElements(By.partialLinkText(loc[1]));
+			break;
+		case "TagName":
+			elements = driver.findElements(By.tagName(loc[1]));
+			break;
+		case "Class":
+			elements = driver.findElements(By.className(loc[1]));
+			break;
+		case "Xpath":
+			elements = driver.findElements(By.xpath(loc[1]));
+			break;
+		default:
+		}
+
+//		System.out.println("Element Locator " + loc[0] + " : " + elements);
+		return elements;
+	}
+
+	public String getText(String locator) {
+
+		String text = null;
+
+		String[] loc = locator.split("@@");
+
+		switch (loc[0]) {
+
+		case "ID":
+			text = driver.findElement(By.id(loc[1])).getText();
+			break;
+		case "Name":
+			text = driver.findElement(By.name(loc[1])).getText();
+			break;
+		case "CSS":
+			text = driver.findElement(By.cssSelector(loc[1])).getText();
+			break;
+		case "LinkText":
+			text = driver.findElement(By.linkText(loc[1])).getText();
+			break;
+		case "PartialLinkText":
+			text = driver.findElement(By.partialLinkText(loc[1])).getText();
+			break;
+		case "TagName":
+			text = driver.findElement(By.tagName(loc[1])).getText();
+			break;
+		case "Class":
+			text = driver.findElement(By.className(loc[1])).getText();
+			break;
+		case "Xpath":
+			text = driver.findElement(By.xpath(loc[1])).getText();
+			break;
+		default:
+		}
+
+//		System.out.println("Text of Locator " + loc[0] + " : " + text);
+		return text;
 	}
 
 	/*****************************
@@ -491,8 +568,8 @@ public class BaseTest {
 	}
 
 	public static void cutPasteScreenShots() {
-		File source = new File(System.getProperty("user.dir")+"\\ExtentReports\\ScreenShots");
-		File dest = new File("C:\\Users"+System.getProperty("user.name"));
+		File source = new File(System.getProperty("user.dir") + "\\ExtentReports\\ScreenShots");
+		File dest = new File("C:\\Users" + System.getProperty("user.name"));
 		try {
 			FileUtils.copyDirectory(source, dest);
 			// FileUtils.forceDelete(source);
@@ -503,14 +580,14 @@ public class BaseTest {
 	}
 
 	public static void cutPasteHtmlFile() {
-		File source = new File(System.getProperty("user.dir")+"\\ExtentReports");
-		File dest = new File("C:\\Users"+System.getProperty("user.name"));
+		File source = new File(System.getProperty("user.dir") + "\\ExtentReports");
+		File dest = new File("C:\\Users" + System.getProperty("user.name"));
 		try {
 			FileUtils.copyDirectory(source, dest);
 			// FileUtils.forceDelete(source);
 			// FileUtils.cleanDirectory(source);
 
-			File folder = new File("C:\\Users"+System.getProperty("user.name"));
+			File folder = new File("C:\\Users" + System.getProperty("user.name"));
 			File fList[] = folder.listFiles();
 			// Searchs .html
 
@@ -538,92 +615,78 @@ public class BaseTest {
 		action.click().build().perform();
 	}
 
-	public void Selectvalue(String xpathEle, String data) {
-		Select select = new Select(driver.findElement(By.xpath(GetObjectPath(xpathEle))));
+	public void SelectByVisibleText(String xpathEle, String data) {
+		Select select = new Select(getLocator(GetObjectPath(xpathEle)));
 		select.selectByVisibleText(data);
+	}
+
+	public void SelectByValue(String xpathEle, String data) {
+		Select select = new Select(getLocator(GetObjectPath(xpathEle)));
+		select.selectByValue(data);
 	}
 
 	public int SizeofList(String xpathEle) {
-		List<WebElement> allLinks = driver.findElements(By.xpath(GetObjectPath(xpathEle)));
+		List<WebElement> allLinks = getLocators(GetObjectPath(xpathEle));
 		int size = allLinks.size();
-		// System.out.println(size);
+		System.out.println("Size of list: " + size);
 		return size;
 	}
 
-	public void SelectVisibleText_byID(String ID, String data) {
-		Select select = new Select(driver.findElement(By.id(GetObjectPath(ID))));
-		select.selectByVisibleText(data);
-
-	}
-
-	public String ReturnVisibleText_byID(String ID, String data) {
-		Select select = new Select(driver.findElement(By.id(GetObjectPath(ID))));
+	public String ReturnVisibleText(String xpathEle, String data) {
+		Select select = new Select(getLocator(GetObjectPath(xpathEle)));
 		select.selectByVisibleText(data);
 		return data;
 
 	}
 
-	public void SelectVisibleText_byName(String Name, String data) {
-		Select select = new Select(driver.findElement(By.name(GetObjectPath(Name))));
-		select.selectByVisibleText(data);
-
-	}
-
-	public String SelectValue_byID(String ID, String data) {
-		String value = driver.findElement(By.id(GetObjectPath(ID))).getAttribute("value");
+	public String ReturnValue(String xpathEle, String data) {
+		String value = getLocator(GetObjectPath(xpathEle)).getAttribute("value");
 		return value;
 	}
 
-	public String SelectValue_byName(String Name, String data) {
-		String value = driver.findElement(By.name(GetObjectPath(Name))).getAttribute("value");
+	public String SelectByName(String xpathEle, String data) {
+		String value = getLocator(GetObjectPath(xpathEle)).getAttribute("value");
 		return value;
 	}
 
-	public void Selectvalue_byID(String ID, String data) {
-		Select select = new Select(driver.findElement(By.id(GetObjectPath(ID))));
-		select.selectByValue(data);
-	}
-
-	public int SizeofList_byID(String ID) {
-		List<WebElement> allLinks = driver.findElements(By.id(GetObjectPath(ID)));
-		int size = allLinks.size();
-		// System.out.println(size);
-		return size;
-	}
-
-	public int SizeofListbytagname(String xpathEle) {
-		WebElement list = driver.findElement(By.xpath(xpathEle));
-		List<WebElement> allLinks = list.findElements(By.tagName("li"));
-		int size = allLinks.size();
-		// System.out.println(size);
-		return size;
-	}
-
-	public void SelectDDLValue(String str1, String str3, String data, int nofvalues) {
+	public void SelectDropdown(String start, String data, String end, int nofvalues) {
 
 		for (int i = 1; i <= nofvalues; i++) {
-			String str = str1 + i + str3;
-			// System.out.println(str);
-			WebElement obj = driver.findElement(By.xpath(str));
-			if (obj.getText().equals(data)) {
+			String xpath = start + i + end;
+			String obj = getText(xpath);
+			if (obj.equals(data)) {
+				getLocator(xpath).click();
+				break;
+			}
+		}
+	}
+
+	public void SelectContainsDropdown(String start, String data, String end, int nofvalues) {
+
+		for (int i = 1; i <= nofvalues; i++) {
+			String xpath = start + data + end;
+			WebElement obj = getLocator(xpath);
+			if (obj.getText().contains(data)) {
 				obj.click();
 				break;
 			}
 		}
 	}
 
-	public void SelectDDLValue_containsfunction(String str1, String str3, String data, int size) {
-
-		for (int i = 1; i <= size; i++) {
-			String str = str1 + data + str3;
-			// System.out.println(str);
-			// System.out.println(getTextByXpath(str));
-			if (getTextByXpath(str).contains(data)) {
-				click(str);
-				break;
-			}
-		}
-	}
+	// public void SelectDropdown(String str1, String str3, String data, int
+	// nofvalues) {
+	//
+	// List<WebElement> element =
+	// driver.findElements(By.cssSelector(".txt_black.heading_4"));
+	//// List<WebElement> element = getLocator(GetObjectPath(xpathEle));
+	// for (int i = 0; i < element.size(); i++) {
+	// String temp = element.get(i).getText();
+	// if (temp.equals("0")) {
+	// element.get(i).click();
+	// break;
+	// }
+	// }
+	// }
 
 	public WebElement getElementsWithAlteratingNames(String PartialName, String Tag, String Attribute) {
 		try {
@@ -645,21 +708,21 @@ public class BaseTest {
 	}
 
 	public void dragAndDropBy(String xpathEle) {
-		WebElement obj = driver.findElement(By.xpath(GetObjectPath(xpathEle)));
+		WebElement obj = getLocator(GetObjectPath(xpathEle));
 		Actions action = new Actions(driver);
 		action.dragAndDropBy(obj, 0, 200).build().perform();
 	}
 
 	public void dragAndDrop(String xpathEle1, String xpathEle2) {
-		WebElement fromWebElement = driver.findElement(By.xpath(GetObjectPath(xpathEle1)));
-		WebElement toWebElement = driver.findElement(By.xpath(GetObjectPath(xpathEle2)));
+		WebElement fromWebElement = getLocator(GetObjectPath(xpathEle1));
+		WebElement toWebElement = getLocator(GetObjectPath(xpathEle2));
 		Actions builder = new Actions(driver);
 		builder.dragAndDrop(fromWebElement, toWebElement);
 	}
 
 	public void dragAndDrop_Method2(String xpathEle1, String xpathEle2) {
-		WebElement fromWebElement = driver.findElement(By.xpath(GetObjectPath(xpathEle1)));
-		WebElement toWebElement = driver.findElement(By.xpath(GetObjectPath(xpathEle2)));
+		WebElement fromWebElement = getLocator(GetObjectPath(xpathEle1));
+		WebElement toWebElement = getLocator(GetObjectPath(xpathEle2));
 		Actions builder = new Actions(driver);
 		Action dragAndDrop = builder.clickAndHold(fromWebElement).moveToElement(toWebElement).release(toWebElement)
 				.build();
@@ -667,7 +730,7 @@ public class BaseTest {
 	}
 
 	public boolean IsEmpty(String xpathEle) {
-		String text = driver.findElement(By.xpath(GetObjectPath(xpathEle))).getAttribute("value");
+		String text = getLocator(GetObjectPath(xpathEle)).getAttribute("value");
 		if (text.isEmpty()) {
 			return true;
 		} else {
@@ -676,27 +739,18 @@ public class BaseTest {
 	}
 
 	public void clickbyJavascriptExecutor(String xpathEle) {
-		
+
 		WebElement element = getLocator(GetObjectPath(xpathEle));
-//		WebElement element = driver.findElement(By.xpath(GetObjectPath(xpathEle)));
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", element);
 
 	}
 
 	public void typebyJavascriptExecutor(String xpathEle, String data) {
+
 		WebElement element = getLocator(GetObjectPath(xpathEle));
-//		WebElement element = driver.findElement(By.xpath(GetObjectPath(xpathEle)));
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].value='" + data + "';", element);
-
-	}
-
-	public void typebyJavascriptExecutor_ID(String id, String data) {
-		WebElement element = driver.findElement(By.id(GetObjectPath(id)));
-		JavascriptExecutor executor = (JavascriptExecutor) driver;
-		executor.executeScript("arguments[0].value='" + data + "';", element);
-
 	}
 
 	public void scrollingOfPage(int startindex, int lastindex) {
@@ -753,34 +807,9 @@ public class BaseTest {
 	/*****************************
 	 * Click on Object
 	 ******************************/
-	public String getText(String xpathEle) {
-		String x = driver.findElement(By.xpath(GetObjectPath(xpathEle))).getText();
-		return x;
-
-	}
-
-	public String getTextByID(String ID) {
-		String x = driver.findElement(By.id(GetObjectPath(ID))).getText();
-		// System.out.println(x);
-		return x;
-
-	}
-
-	public static String getTextByXpath(String xpathEle) {
-		String x = driver.findElement(By.xpath(xpathEle)).getText();
-		// System.out.println(x);
-		return x;
-
-	}
-
-	// public static String getValue(String xpathEle) {
-	// String x=driver.findElement(By.xpath(xpathEle)).getAttribute("value");
-	//// System.out.println(x);
-	// return x;
-	// }
 
 	public String getValue(String xpathEle) {
-		String x = driver.findElement(By.xpath(GetObjectPath(xpathEle))).getAttribute("value");
+		String x = getLocator(GetObjectPath(xpathEle)).getAttribute("value");
 		// System.out.println(x);
 		return x;
 	}
@@ -834,7 +863,7 @@ public class BaseTest {
 
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.elementToBeClickable(getLocator(GetObjectPath(xpathEle))));
-//		getLocator(GetObjectPath(xpathEle)).click();
+		// getLocator(GetObjectPath(xpathEle)).click();
 
 	}
 

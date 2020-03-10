@@ -5,9 +5,8 @@
     <classes>
       <class name="Com.Testcases.Merchant.CreateMerchant">
         <methods>
-          <include name="afterMethod"/>
           <include name="Testbefore"/>
-          <include name="Test_CreateMerchant" invocation-numbers="0"/>
+          <include name="Test_CreateMerchant"/>
         </methods>
       </class> <!-- Com.Testcases.Merchant.CreateMerchant -->
     </classes>
