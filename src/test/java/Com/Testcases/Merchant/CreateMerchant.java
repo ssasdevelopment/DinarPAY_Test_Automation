@@ -1,33 +1,30 @@
 package Com.Testcases.Merchant;
 
 import java.awt.AWTException;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.text.ParseException;
 import java.util.Date;
-import java.lang.System;
 import java.util.Hashtable;
-import java.util.List;
-import java.util.Random;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import com.relevantcodes.extentreports.LogStatus;
 
-import Com.Testcases.Merchant.DataProviderClass;
 import Com.base.BaseTest;
+import Com.base.CustomRandom;
 
 public class CreateMerchant extends BaseTest {
 	int i = 0;
 
+	@BeforeSuite
+	public void setProperties(){
+		propertiesFile = "CreateMerchant";
+	}
+	
 	@BeforeMethod
 	public void Testbefore() throws IOException, InterruptedException, AWTException {
 
@@ -52,9 +49,9 @@ public class CreateMerchant extends BaseTest {
 			testCaseName = "Test_CreateMerchant";
 			Date d = new Date();
 
-			String TestCaseName = data.get("TestcaseName") + "-" + data.get("Environment") + "_" + d.toString().replace(":", "_").replace(" ", "_") + ".html";
-			String TestCaseDesc = data.get("TestcaseName") + "-" + data.get("Environment");
-			String TestCaseComDesc = data.get("TestcaseName") + "-" + data.get("Environment");
+			String TestCaseName = data.get("TestcaseName") + "_" + data.get("Environment") + "_" + d.toString().replace(":", "_").replace(" ", "_") + ".html";
+			String TestCaseDesc = data.get("TestcaseName") + "_" + data.get("Environment");
+			String TestCaseComDesc = data.get("TestcaseName") + "_" + data.get("Environment");
 
 			StartReport(TestCaseDesc, TestCaseComDesc);
 			isTestRunnable(data);
@@ -90,7 +87,7 @@ public class CreateMerchant extends BaseTest {
 			click("NewMerchantLink");
 			Thread.sleep(500);
 
-			String containsEnd = "')]";
+//			String containsEnd = "')]";
 			String equalEnd = "]";
 
 			/*******************************************************/
@@ -162,9 +159,9 @@ public class CreateMerchant extends BaseTest {
 				click("CMP_ReferenceNumber");
 			else
 
-				/*******************************************************/
-				/****************** Contact Details ********************/
-				/*******************************************************/
+			/*******************************************************/
+			/****************** Contact Details ********************/
+			/*******************************************************/
 			// setValue("MCD_ContactMobileSelectCountry", data.get("CMD_Contact_Mobile_Code"));
 			setValue("MCD_ContactMobile", data.get("CMD_Contact_Mobile_Number"));
 			// setValue("MCD_ContactLandlineSelectCountry", data.get("CMD_Contact_Landline_Code"));
@@ -184,12 +181,13 @@ public class CreateMerchant extends BaseTest {
 			/*******************************************************/
 			/******************** Attachments **********************/
 			/*******************************************************/
-			// setValue("MA_LegalLicense", data.get("MA_Legal_License"));
-			// setValue("MA_ProprietorPhoto", data.get("MA_Proprietor_Photo"));
-			// setValue("MA_BankPassbook", data.get("MA_Bank_Passbook"));
-			// setValue("MA_ShopStorePhoto", data.get("MA_Shop_Store_Photo"));
-			// setValue("MA_NationalID", data.get("MA_National_ID"));
-			// setValue("MA_OtherSupportiveDocuments", data.get("MA_Other_Supportive_Documents"));
+			
+			attachFile(data.get("MA_Legal_License"));
+			attachFile(data.get("MA_Proprietor_Photo"));
+			attachFile(data.get("MA_Bank_Passbook"));
+			attachFile(data.get("MA_Shop_Store_Photo"));
+			attachFile(data.get("MA_National_ID"));
+			attachFile(data.get("MA_Other_Supportive_Documents"));
 
 			/*******************************************************/
 			/***************** Proprietor Detail *******************/
@@ -239,7 +237,7 @@ public class CreateMerchant extends BaseTest {
 			/*******************************************************/
 			/******************** Store Logo ***********************/
 			/*******************************************************/
-			// setValue("MSL_StoreLogo", data.get("Store_Logo"));
+//			attachFile(data.get("Store_Logo"));
 
 			/*******************************************************/
 			/****************** Other Details **********************/
@@ -257,9 +255,23 @@ public class CreateMerchant extends BaseTest {
 			/************* Mobile Number & Password ****************/
 			/*******************************************************/
 			// setValue("MMNP_SelectCountry", data.get("MMNP_SelectCountry"));
-			setValue("MMNP_MobileNumber", data.get("MMNP_MobileNumber"));
-			setValue("MMNP_Password", data.get("MMNP_Password"));
-			setValue("MMNP_RePassword", data.get("MMNP_RePassword"));
+			
+			String mobileNumber = CustomRandom.mobileNumber(10);
+			setValue("MMNP_MobileNumber", mobileNumber);
+			int rowNum = Integer.parseInt(data.get("row"));
+			Result_to_Xls(xls, "TestData", rowNum, mobileNumber, "MMNP_MobileNumber");
+			System.out.println("Mobile Number:: " + mobileNumber);
+			
+			String sp_password = CustomRandom.randomAlphaNumeric(10);
+			setValue("MMNP_Password", sp_password);
+			rowNum = Integer.parseInt(data.get("row"));
+			Result_to_Xls(xls, "TestData", rowNum, sp_password, "MMNP_Password");
+			System.out.println("Password:: " + sp_password);
+			
+			setValue("MMNP_RePassword", sp_password);
+			rowNum = Integer.parseInt(data.get("row"));
+			Result_to_Xls(xls, "TestData", rowNum, sp_password, "MMNP_RePassword");
+			System.out.println("Confirm Password:: " + sp_password);
 
 			/*******************************************************/
 			/*************** Login Credentials Tab *****************/
@@ -344,7 +356,7 @@ public class CreateMerchant extends BaseTest {
 			SelectDropdown(MerchantPaymentMethod, data.get("MSALF_S2_PaymentMethod"), equalEnd, SizeofList("MSALF_S2_PaymentMethod_List"));
 			Thread.sleep(200);
 			
-			setValue("MSALF_S2_ChequeNumber", data.get("MSALF_S2_ChequeNumber"));
+//			setValue("MSALF_S2_ChequeNumber", data.get("MSALF_S2_ChequeNumber"));
 			// setValue("MSALF_S2_Attachment4", data.get("MSALF_S2_Attachment4"));
 			setValue("MSALF_S2_TotalAmount", data.get("MSALF_S2_TotalAmount"));
 			setValue("MSALF_S2_AmountInWords", data.get("MSALF_S2_AmountInWords"));
@@ -387,7 +399,7 @@ public class CreateMerchant extends BaseTest {
 			test.log(LogStatus.PASS, "User is on Merchant Listing screen");
 			CaptureScreen();
 
-			int rowNum = Integer.parseInt(data.get("row"));
+			rowNum = Integer.parseInt(data.get("row"));
 			Result_to_Xls(xls, "TestData", rowNum, "Pass", "Result");
 
 		} catch (Exception e) {

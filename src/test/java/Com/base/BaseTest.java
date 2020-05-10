@@ -88,6 +88,7 @@ public class BaseTest {
 	public static int dataRowNum;
 	public static String testCaseName;
 	public static String TC_Name;
+	public static String propertiesFile;
 
 	public static ExtentReports rep = ExtentManager.getInstance();
 	public static ExtentTest test;
@@ -103,16 +104,16 @@ public class BaseTest {
 
 	public void TestBeforeMethod() throws AWTException, InterruptedException {
 		openBrowser("Browser_Name");
-		navigate("DinarPayURL_QA");
-		if (isElementPresent("SiteCantReach")) {
-			driver.navigate().refresh();
-		}
+//		navigate("CodeBeautify");
+//		if (isElementPresent("SiteCantReach")) {
+//			driver.navigate().refresh();
+//		}
 	}
 
 	public void TestAfterMethod() {
 		rep.endTest(test);
 		rep.flush();
-		// driver.quit();
+		driver.quit();
 		renameExtentReport();
 	}
 
@@ -139,7 +140,7 @@ public class BaseTest {
 			if (Path == null) {
 				Path = new Properties();
 				FileInputStream fs = new FileInputStream(
-						System.getProperty("user.dir") + "\\src\\test\\java\\Com\\Source\\merchant.properties");
+						System.getProperty("user.dir") + "\\src\\test\\java\\Com\\Source\\"+ propertiesFile +".properties");
 				Path.load(fs);
 			}
 			P = Path.getProperty(PName);
@@ -165,6 +166,20 @@ public class BaseTest {
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage() + ", File Rename failed");
+		}
+	}
+	
+	protected static void renameFormName(String orgFilePath, String newFilePath) {
+		try {
+			File file = new File(orgFilePath);
+			File newFile = new File(newFilePath);
+			if (file.renameTo(newFile)) {
+				System.out.println("Form Renamed successfully");
+			} else {
+				System.out.println("Form Rename failed");
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage() + ", Form Rename failed");
 		}
 	}
 
@@ -538,6 +553,38 @@ public class BaseTest {
 		}
 
 	}
+	
+	public void attachFile(String filePath) throws InterruptedException, AWTException{
+		
+		setClipboardData(filePath);
+		Thread.sleep(300);
+		KeyPress("Tab");
+		Thread.sleep(300);
+		KeyPress("Enter");
+		Robot rbt = new Robot();
+		rbt.delay(800);
+		rbt.keyPress(KeyEvent.VK_CONTROL);
+		rbt.keyPress(KeyEvent.VK_V);
+		rbt.keyRelease(KeyEvent.VK_V);
+		rbt.keyRelease(KeyEvent.VK_CONTROL);
+		rbt.keyPress(KeyEvent.VK_ENTER);
+		rbt.keyRelease(KeyEvent.VK_ENTER);
+		rbt.delay(800);
+	}
+	
+	public void saveFile(String filePath) throws InterruptedException, AWTException{
+		
+		setClipboardData(filePath);
+		Robot rbt = new Robot();
+		rbt.delay(800);
+		rbt.keyPress(KeyEvent.VK_CONTROL);
+		rbt.keyPress(KeyEvent.VK_V);
+		rbt.keyRelease(KeyEvent.VK_V);
+		rbt.keyRelease(KeyEvent.VK_CONTROL);
+		rbt.keyPress(KeyEvent.VK_ENTER);
+		rbt.keyRelease(KeyEvent.VK_ENTER);
+		rbt.delay(800);
+	}
 
 	public void mouseHover() throws AWTException {
 
@@ -628,7 +675,7 @@ public class BaseTest {
 	public int SizeofList(String xpathEle) {
 		List<WebElement> allLinks = getLocators(GetObjectPath(xpathEle));
 		int size = allLinks.size();
-		System.out.println("Size of list: " + size);
+//		System.out.println("Size of list: " + size);
 		return size;
 	}
 

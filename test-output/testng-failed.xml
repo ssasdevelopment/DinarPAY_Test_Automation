@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Com.Testcases.Merchant.CreateMerchant">
+      <class name="Com.Testcases.APIs.Jibli">
         <methods>
-          <include name="Testbefore"/>
-          <include name="Test_CreateMerchant"/>
+          <include name="beforeTest"/>
+          <include name="afterMethod"/>
+          <include name="POST_createUserProfile" invocation-numbers="0 1 2 3 4"/>
         </methods>
-      </class> <!-- Com.Testcases.Merchant.CreateMerchant -->
+      </class> <!-- Com.Testcases.APIs.Jibli -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

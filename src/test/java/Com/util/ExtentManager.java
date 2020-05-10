@@ -3,9 +3,10 @@ package Com.util;
 import java.io.File;
 import java.util.Date;
 import com.relevantcodes.extentreports.ExtentReports;
-import Com.base.BaseTest;
 
-public class ExtentManager extends BaseTest {
+import Com.base.BaseClassJibli;
+
+public class ExtentManager extends BaseClassJibli {
 		
 	
 		public static ExtentReports getInstance()
